@@ -4,9 +4,6 @@ echo ""
 echo " [+] Obteniendo Permisos de .config..."
 echo ""
 
-# ruta actual
-ruta="$HOME/Documentos/Hyprdots"
-
 # hyprland
 sudo chown -R fravelz:fravelz ~/.config/hypr
 echo -e " [+] Hypland Listo!!! \n"

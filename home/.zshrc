@@ -44,6 +44,23 @@ function cleartarget(){
     echo '' > /home/fravelz/.config/bin/target
 }
 
+# Crear archivos
+
+function mkt(){
+  mkdir {nmap,content,scripts}
+}
+
+# comando para taildwindcss
+
+function tailwindcss(){
+  npx tailwindcss -i ./input.css -o ./output.css --watch
+}
+
+# comando para reactjs
+function reactjs(){
+  pnpm run dev
+}
+
 # Eliminar para que sea inrrecuperable
 rmk(){
   if [ -z "$1" ]; then

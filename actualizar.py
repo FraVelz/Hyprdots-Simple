@@ -5,7 +5,7 @@ import shutil
 import os
 
 '''
-Script para actualizar las configuraciones de Hyprdots-Simple en Arch Linux,
+Script para actualizar las configuraciones de Hyprdots en Arch Linux,
 todas las configuraciones establecidas en este repositorio modificaran
 las configuraciones actuales del usuario, unicamente del usuario
 actual si cambias de usuario no verás los cambios.

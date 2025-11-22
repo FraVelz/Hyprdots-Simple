@@ -4,9 +4,15 @@ echo ""
 echo " [+] Instalando paquetes nesesarios..."
 echo ""
 
-sudo pacman -S kitty, fastfetch, hyprpaper
-sudo pacman -S zsh, hyprlock, nvim, rofi
-sudo pacman -s ranger
+
+# 1. terminal (kitty)
+# 2. informacion del sistema por consola (fastfetch) 
+# 3. fondo de pantalla (hyprpaper)
+# 4. zsh
+# ...
+
+sudo pacman -S kitty fastfetch hyprpaper zsh hyprlock nvim rofi ranger lsd bat wireplumber
+sudo pacman -S ttf-nerd-fonts-symbols
 
 echo ""
 echo "¡Listo! Instalacion completa de paquetes nesesarios..."

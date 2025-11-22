@@ -35,13 +35,13 @@ function parse_git_branch {
 function settarget(){
     ip_address=$1
     machine_name=$2
-    echo "$ip_address $machine_name" > /home/fravelz/.config/bin/target
+    echo "$ip_address $machine_name" > /home/fravelz/.config/rofi/target
 }
 
 # Limpiar target (ip victima) a el waybar (por medio del archivo)
 
 function cleartarget(){
-    echo '' > /home/fravelz/.config/bin/target
+    echo '' > /home/fravelz/.config/rofi/target
 }
 
 # Crear archivos

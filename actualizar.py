@@ -67,7 +67,7 @@ for e_config in config:
         dirs_exist_ok=True
     )
 
-# Sobrescribir archivos en el home ***********************************
+# Sobrescribir archivos y carpetas en el home ************************
 
 print('\n [+] Carpetas creadas, ejecutando actualizacion/creacion archivos en el home...')
 
@@ -75,12 +75,18 @@ for e_home in home:
     archivo_origen = f'{ruta_actual}/home/{e_home}'
     archivo_destino = f'{ruta_usuario}/{e_home}'
 
-    # Si ya existe el archivo, eliminarlo antes de copiar
+    # Si existe un archivo o carpeta con el mismo nombre, lo elimina
     if os.path.exists(archivo_destino):
-        os.remove(archivo_destino)
+        if os.path.isdir(archivo_destino):
+            shutil.rmtree(archivo_destino)  # elimina carpetas
+        else:
+            os.remove(archivo_destino)      # elimina archivos
 
-    # Copiar el archivo desde Hyprdots al home
-    shutil.copy2(archivo_origen, archivo_destino)
+    # Copiar según si es carpeta o archivo
+    if os.path.isdir(archivo_origen):
+        shutil.copytree(archivo_origen, archivo_destino)
+    else:
+        shutil.copy2(archivo_origen, archivo_destino)
 
 print('\n [+] Configuraciones actualizadas, recargando entorno...')
 

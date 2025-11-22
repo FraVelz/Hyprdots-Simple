@@ -13,6 +13,13 @@ echo ""
 
 sudo pacman -S kitty fastfetch hyprpaper zsh hyprlock nvim rofi ranger lsd bat wireplumber
 sudo pacman -S ttf-nerd-fonts-symbols
+sudo pacman -Syu networkmanager
+sudo pacman -S network-manager-applet
+
+# Activando servicios de red
+sudo systemctl enable NetworkManager
+sudo systemctl start NetworkManager
+nmcli device status   # Para ver el estado de tus conexiones (en waybar)
 
 echo ""
 echo "¡Listo! Instalacion completa de paquetes nesesarios..."

@@ -1,12 +1,11 @@
 /* Configuracion ************************************************** */
 
 configuration {
-	modi:                 "drun,run,filebrowser,window";
+	modi:                 "drun,run,window";
     show-icons:           true;
-    display-drun:         "APPS";
-    display-run:          "RUN";
-    display-filebrowser:  "FILES";
-    display-window:       "WINDOW";
+    display-drun:         "Aplicaciones";
+    display-run:          "Comandos";
+    display-window:       "Ventanas";
 	drun-display-format:  "{name}";
 	window-format:        "{w} · {c} · {t}";
 }
@@ -38,7 +37,7 @@ window {
     /* Propiedades para todo los widgets */
     enabled:               true;
     border:                2px;
-    border-color:        #89b4fa;
+    border-color:          @foreground;
     border-radius:         15px;
     cursor:                "default";
     background-color:      @background;
@@ -57,7 +56,7 @@ mainbox {
 imagebox {
     padding:               20px;
     background-color:      transparent;
-    background-image:      url("~/.config/bin/images/arch-linux.png", height);
+    background-image:      url("~/.config/rofi/images/arch-linux.png", height);
     orientation:           vertical;
     children:              [ "inputbar", "dummy", "mode-switcher" ];
 }
@@ -210,10 +209,14 @@ error-message {
     text-color:            @foreground;
 }
 
+/* Informacion **************************************************** */
 
-/* **************************************************************** */
-/* * Modificador: Fravelz                                           */
-
-/* * Autor codigo base - github: @adi1090x (Aditya Shakya)          */
-/* * Enlace: https://github.com/adi1090x/rofi/tree/master?tab=readme-ov-file */
-/* **************************************************************** */
+/**
+ * Modificado por: Fravelz
+ *
+ * Autor: Aditya Shakya (adi1090x)
+ * Github: @adi1090x
+ * 
+ * Rofi Theme File
+ * Rofi Version: 1.7.3
+ **/

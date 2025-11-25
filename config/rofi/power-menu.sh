@@ -10,7 +10,6 @@ host=`hostname`
 
 apagar=' '
 reiniciar='󰦛 '
-bloquear='󱅞'
 suspender='󰽥'
 cerrar_seccion='󰍂 '
 cancelar=' '
@@ -29,7 +28,7 @@ rofi_cmd() {
 # Pasa Variables a rofi dmenu
 
 run_rofi() {
-	echo -e "$cancelar\n$apagar\n$reiniciar\n$suspender\n$cerrar_seccion\n$bloquear" | rofi_cmd
+	echo -e "$cancelar\n$apagar\n$reiniciar\n$suspender\n$cerrar_seccion" | rofi_cmd
 }
 
 # Acciones
@@ -41,10 +40,6 @@ case ${chosen} in
 
     $reiniciar)
 		systemctl reboot
-        ;;
-
-    $bloquear)
-		hyprlock
         ;;
 
     $suspender)

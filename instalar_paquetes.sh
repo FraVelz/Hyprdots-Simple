@@ -18,7 +18,7 @@ echo ""
 # 12. Controladores de red (networkmanager por consola, network-manager-apple interfaz grafica mas
 #     comoda y rapida, networkmanager-openvpn para el manejo de conexiones vpn)
 
-sudo pacman -S kitty fastfetch hyprpaper zsh nvim rofi ranger lsd bat wireplumber
+sudo pacman -S kitty fastfetch hyprpaper zsh nvim rofi ranger lsd bat wireplumber libnotify
 sudo pacman -S ttf-nerd-fonts-symbols
 sudo pacman -Syu networkmanager
 sudo pacman -S network-manager-applet networkmanager-openvpn

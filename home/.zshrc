@@ -3,14 +3,38 @@ ZSH_THEME="afowler"
 
 ENABLE_CORRECTION="true"
 
+# Plugins nativos de oh-my-zsh (evita warnings si faltan plugins externos)
 plugins=(
 	git
-	zsh-autosuggestions
-	zsh-syntax-highlighting
-	zsh-history-substring-search
+	history-substring-search
 )
 
-source $ZSH/oh-my-zsh.sh
+if [[ -r "$ZSH/oh-my-zsh.sh" ]]; then
+  source "$ZSH/oh-my-zsh.sh"
+fi
+
+# Plugins externos (opcionales). Se cargan si están instalados.
+#
+# - zsh-autosuggestions: recomendado cargarlo después de OMZ
+# - zsh-syntax-highlighting: recomendado cargarlo al final del .zshrc
+#
+# Soporta 2 ubicaciones comunes:
+#   1) ~/.oh-my-zsh/custom/plugins/<plugin>/<archivo>.zsh
+#   2) /usr/share/zsh/plugins/<plugin>/<archivo>.zsh  (paquetes de distro)
+
+_omz_custom_plugins="${ZSH_CUSTOM:-$ZSH/custom}/plugins"
+
+if [[ -f "${_omz_custom_plugins}/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
+  source "${_omz_custom_plugins}/zsh-autosuggestions/zsh-autosuggestions.zsh"
+elif [[ -f "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
+  source "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+fi
+
+if [[ -f "${_omz_custom_plugins}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
+  source "${_omz_custom_plugins}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+elif [[ -f "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
+  source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
 
 # Pronmpt configuration
 

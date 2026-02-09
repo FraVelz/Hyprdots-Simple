@@ -51,10 +51,7 @@ for e_config in config:
     if os.path.exists(carpeta):
         shutil.rmtree(carpeta, ignore_errors=True)
 
-    # Volver a crearla vacía
-    os.makedirs(carpeta)
-
-print('\n [+] Carpetas eliminadas, ejecutando creacion de carpetas...')
+print('\n [+] Carpetas eliminadas, copiando nuevas configuraciones...')
 
 # Pasar nuevas configuraciones ***************************************
 
@@ -69,7 +66,7 @@ for e_config in config:
 
 # Sobrescribir archivos y carpetas en el home ************************
 
-print('\n [+] Carpetas creadas, ejecutando actualizacion/creacion archivos en el home...')
+print('\n [+] Configuraciones de ~/.config actualizadas, sincronizando archivos en el home...')
 
 for e_home in home:
     archivo_origen = f'{ruta_actual}/home/{e_home}'

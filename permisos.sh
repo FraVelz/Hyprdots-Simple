@@ -1,40 +1,34 @@
 #!/bin/bash
 
+set -euo pipefail
+
 echo ""
 echo " [+] Obteniendo Permisos de .config..."
 echo ""
 
-# hyprland
-sudo chown -R fravelz:fravelz ~/.config/hypr
-echo -e " [+] Hypland Listo!!! \n"
+user_name=$(whoami)
+group_name=$(id -gn "$user_name")
 
-# Temas
-sudo chown -R fravelz:fravelz ~/.config/themes
-echo -e " [+] Temas Listo!!! \n"
+declare -A config_targets=(
+	[hypr]="Hyprland"
+	[themes]="Temas"
+	[bin]="Bin"
+	[waybar]="Waybar"
+	[nvim]="Nvim"
+	[kitty]="Kitty"
+	[wallpapers]="Wallpapers"
+	[fastfetch]="Fastfetch"
+)
 
-# bin
-sudo chown -R fravelz:fravelz ~/.config/bin
-echo -e " [+] Bin Listo!!! \n"
-
-# waybar
-sudo chown -R fravelz:fravelz ~/.config/waybar
-echo -e " [+] Waybar Listo!!! \n"
-
-# nvim
-sudo chown -R fravelz:fravelz ~/.config/nvim
-echo -e " [+] Nvim Listo!!! \n"
-
-# kitty
-sudo chown -R fravelz:fravelz ~/.config/kitty
-echo -e " [+] Kitty Listo!!! \n"
-
-# fondos de pantalla (wallpapers)
-sudo chown -R fravelz:fravelz ~/.config/wallpapers
-echo -e " [+] Wallpapers Listo!!! \n"
-
-# fastfetch
-sudo chown -R fravelz:fravelz ~/.config/fastfetch
-echo -e " [+] Fastfetch Listo!!! \n"
+for folder in "${!config_targets[@]}"; do
+	target_path="$HOME/.config/$folder"
+	if [ -e "$target_path" ]; then
+		sudo chown -R "$user_name:$group_name" "$target_path"
+		echo -e " [+] ${config_targets[$folder]} Listo!!! \n"
+	else
+		echo -e " [!] Carpeta $target_path no existe, omitiendo... \n"
+	fi
+done
 
 echo ""
 echo "¡Listo! Permisos Obtenidos..."
